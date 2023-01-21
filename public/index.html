@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coba</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BIODATA</h1>
+      <h5></h5>
+    </div>
+
+    <script>
+      fetch("/api/lihat")
+        .then((response) => response.json())
+        .then((value) => {
+          const aa = document.createElement("div");
+          const bb = document.createElement("h5");
+
+          const a1 = document.createElement("p");
+          const a2 = document.createElement("p");
+          const a3 = document.createElement("p");
+          const a4 = document.createElement("p");
+          a1.textContent = value.nama;
+          a2.textContent = value.nim;
+          a3.textContent = value.prodi;
+          a4.textContent = value.semester;
+
+          aa.appendChild(a1);
+          aa.appendChild(a2);
+          aa.appendChild(a3);
+          aa.appendChild(a4);
+          document.querySelector(".container").appendChild(aa);
+        });
+    </script>
+  </body>
+</html>
